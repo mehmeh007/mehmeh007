@@ -421,38 +421,166 @@ document.addEventListener('keydown', (e) => {
 });
 
 function showSpecialMessage() {
-    const message = document.createElement('div');
-    message.innerHTML = '💖 I Love You Shreya! 💖';
-    message.style.cssText = `
+    // Create full screen overlay
+    const overlay = document.createElement('div');
+    overlay.style.cssText = `
         position: fixed;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-        font-family: 'Dancing Script', cursive;
-        font-size: 3rem;
-        color: #ff6b9d;
-        text-shadow: 0 0 30px rgba(255, 107, 157, 0.8);
-        z-index: 10000;
-        animation: popInOut 2s ease-in-out forwards;
-        pointer-events: none;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: radial-gradient(circle, rgba(255,107,157,0.3) 0%, rgba(26,10,15,0.95) 100%);
+        z-index: 9999;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        animation: fadeInOverlay 0.5s ease forwards;
     `;
 
+    // Add animation styles
     const style = document.createElement('style');
     style.textContent = `
-        @keyframes popInOut {
-            0% { opacity: 0; transform: translate(-50%, -50%) scale(0.5); }
-            20% { opacity: 1; transform: translate(-50%, -50%) scale(1.2); }
-            80% { opacity: 1; transform: translate(-50%, -50%) scale(1); }
-            100% { opacity: 0; transform: translate(-50%, -50%) scale(0.5); }
+        @keyframes fadeInOverlay {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        @keyframes heartPulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.3); }
+        }
+        @keyframes floatMessage {
+            0% { opacity: 0; transform: translateY(50px); }
+            20% { opacity: 1; transform: translateY(0); }
+            80% { opacity: 1; transform: translateY(0); }
+            100% { opacity: 0; transform: translateY(-50px); }
+        }
+        @keyframes rainbowGlow {
+            0% { text-shadow: 0 0 30px #ff6b9d, 0 0 60px #ff6b9d; }
+            25% { text-shadow: 0 0 30px #ffd700, 0 0 60px #ffd700; }
+            50% { text-shadow: 0 0 30px #ff69b4, 0 0 60px #ff69b4; }
+            75% { text-shadow: 0 0 30px #e8b4f8, 0 0 60px #e8b4f8; }
+            100% { text-shadow: 0 0 30px #ff6b9d, 0 0 60px #ff6b9d; }
+        }
+        @keyframes bigHeartBeat {
+            0%, 100% { transform: scale(1); }
+            10% { transform: scale(1.3); }
+            20% { transform: scale(1); }
+            30% { transform: scale(1.3); }
+            40% { transform: scale(1); }
         }
     `;
     document.head.appendChild(style);
-    document.body.appendChild(message);
 
-    // Create heart explosion
-    createConfettiBurst(window.innerWidth / 2, window.innerHeight / 2);
+    // Big beating heart
+    const bigHeart = document.createElement('div');
+    bigHeart.innerHTML = '❤️';
+    bigHeart.style.cssText = `
+        font-size: 8rem;
+        animation: bigHeartBeat 1.5s ease-in-out infinite;
+        filter: drop-shadow(0 0 40px rgba(255, 107, 157, 0.8));
+        margin-bottom: 20px;
+    `;
+    overlay.appendChild(bigHeart);
 
-    setTimeout(() => message.remove(), 2000);
+    // Main message
+    const message = document.createElement('div');
+    message.innerHTML = '💖 I Love You So Much, Shreya! 💖';
+    message.style.cssText = `
+        font-family: 'Dancing Script', cursive;
+        font-size: 3.5rem;
+        color: #fff;
+        animation: rainbowGlow 2s ease-in-out infinite;
+        text-align: center;
+        padding: 0 20px;
+        margin-bottom: 30px;
+    `;
+    overlay.appendChild(message);
+
+    // Sub messages that appear one by one
+    const subMessages = [
+        "You're my everything 💕",
+        "My Iris, My Gulab Jamun 🌹",
+        "Forever & Always ✨",
+        "- Your Marshmallow 🤍"
+    ];
+
+    const messagesContainer = document.createElement('div');
+    messagesContainer.style.cssText = `
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 15px;
+    `;
+
+    subMessages.forEach((text, index) => {
+        const subMsg = document.createElement('div');
+        subMsg.innerHTML = text;
+        subMsg.style.cssText = `
+            font-family: 'Poppins', sans-serif;
+            font-size: 1.5rem;
+            color: #ffb6c1;
+            opacity: 0;
+            animation: floatMessage 3s ease-in-out forwards;
+            animation-delay: ${0.5 + index * 0.5}s;
+        `;
+        messagesContainer.appendChild(subMsg);
+    });
+    overlay.appendChild(messagesContainer);
+
+    document.body.appendChild(overlay);
+
+    // Create multiple heart explosions
+    for (let burst = 0; burst < 5; burst++) {
+        setTimeout(() => {
+            createConfettiBurst(
+                Math.random() * window.innerWidth,
+                Math.random() * window.innerHeight
+            );
+        }, burst * 400);
+    }
+
+    // Create floating hearts around the screen
+    const heartEmojis = ['❤️', '💕', '💖', '💗', '💝', '💘', '🌹', '✨'];
+    for (let i = 0; i < 30; i++) {
+        setTimeout(() => {
+            const heart = document.createElement('div');
+            heart.innerHTML = heartEmojis[Math.floor(Math.random() * heartEmojis.length)];
+            heart.style.cssText = `
+                position: fixed;
+                font-size: ${Math.random() * 30 + 20}px;
+                left: ${Math.random() * 100}%;
+                top: 100%;
+                z-index: 10000;
+                animation: floatUpHeart ${Math.random() * 3 + 4}s linear forwards;
+                pointer-events: none;
+            `;
+
+            const floatStyle = document.createElement('style');
+            floatStyle.textContent = `
+                @keyframes floatUpHeart {
+                    from { transform: translateY(0) rotate(0deg); opacity: 1; }
+                    to { transform: translateY(-120vh) rotate(${Math.random() * 360}deg); opacity: 0; }
+                }
+            `;
+            document.head.appendChild(floatStyle);
+            overlay.appendChild(heart);
+        }, i * 100);
+    }
+
+    // Close on click
+    overlay.addEventListener('click', () => {
+        overlay.style.animation = 'fadeInOverlay 0.5s ease reverse forwards';
+        setTimeout(() => overlay.remove(), 500);
+    });
+
+    // Auto close after 6 seconds
+    setTimeout(() => {
+        if (overlay.parentNode) {
+            overlay.style.animation = 'fadeInOverlay 0.5s ease reverse forwards';
+            setTimeout(() => overlay.remove(), 500);
+        }
+    }, 6000);
 }
 
 // Console love message
