@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>💝 For My Shreya 💝</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;500;600;700&family=Poppins:wght@300;400;500;600&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <!-- Floating Hearts Background -->
+    <div class="hearts-container" id="heartsContainer"></div>
+
+    <!-- Sparkles -->
+    <div class="sparkles-container" id="sparklesContainer"></div>
+
+    <!-- Landing Page -->
+    <section class="landing-page" id="landingPage">
+        <div class="envelope-wrapper">
+            <div class="envelope" id="envelope">
+                <div class="envelope-flap"></div>
+                <div class="envelope-body">
+                    <div class="letter">
+                        <span class="heart-seal">💌</span>
+                    </div>
+                </div>
+            </div>
+            <h1 class="landing-title">Hey Shreya, I Made Something For You</h1>
+            <p class="landing-subtitle">Click the envelope to open your surprise...</p>
+        </div>
+    </section>
+
+    <!-- Main Gift Section -->
+    <section class="gift-section hidden" id="giftSection">
+        <!-- Header -->
+        <header class="gift-header">
+            <div class="header-hearts">💕</div>
+            <h1 class="main-title">Happy Valentine's Day, Shreya</h1>
+            <p class="subtitle">A Small Gift From Your Marshmallow</p>
+            <div class="header-hearts">💕</div>
+        </header>
+
+        <!-- Special Intro Card -->
+        <div class="intro-card-container">
+            <div class="intro-card">
+                <div class="intro-decoration">✨</div>
+                <p class="intro-line">A small gift from <span class="name-highlight">Manav</span> to <span
+                        class="name-highlight">Shreya</span></p>
+                <p class="intro-line">From <span class="mythical-name">Ares</span> to <span
+                        class="mythical-name">Iris</span></p>
+                <p class="intro-line">From <span class="cute-name">Marshmallow</span> to <span class="cute-name">Gulab
+                        Jamun</span></p>
+                <p class="intro-love">With Lots of Love 💝</p>
+                <div class="intro-decoration">✨</div>
+            </div>
+        </div>
+
+        <!-- Photo Gallery Section -->
+        <div class="gallery-section">
+            <h2 class="section-title">
+                <span class="title-heart">📸</span>
+                Our Beautiful Moments
+                <span class="title-heart">📸</span>
+            </h2>
+            <div class="photo-gallery" id="photoGallery">
+                <div class="photo-frame">
+                    <img src="photos/photo1.png" alt="Our Memory" id="galleryImage" class="gallery-photo">
+                    <div class="photo-decoration left">💕</div>
+                    <div class="photo-decoration right">💕</div>
+                </div>
+                <p class="gallery-hint">✨ Click the photo to see more memories ✨</p>
+                <div class="photo-dots" id="photoDots">
+                    <span class="dot active" data-index="0"></span>
+                    <span class="dot" data-index="1"></span>
+                    <span class="dot" data-index="2"></span>
+                    <span class="dot" data-index="3"></span>
+                    <span class="dot" data-index="4"></span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Special Personal Message Section -->
+        <div class="personal-message-section">
+            <h2 class="section-title">
+                <span class="title-heart">💌</span>
+                My Heart to Yours
+                <span class="title-heart">💌</span>
+            </h2>
+            <div class="personal-card">
+                <div class="card-corner top-left">🌹</div>
+                <div class="card-corner top-right">🌹</div>
+                <div class="card-corner bottom-left">✨</div>
+                <div class="card-corner bottom-right">✨</div>
+
+                <h3 class="dear-name">Dear Shreya,</h3>
+
+                <div class="personal-message-content">
+                    <p>The very first moment I saw you, I couldn't help but admire everything about you — your bold and
+                        confident personality, those deep and angelic eyes, and that beautiful smile that makes my heart
+                        skip a beat. Everything about you was absolutely perfect.</p>
+
+                    <p>I was too shy to express all of this when you proposed to me, but now I really need to tell you —
+                        you've made my year so incredibly special. You've changed me in ways I never imagined possible
+                        in just these few months. Thank you so much for that, my sweetest Shreya.</p>
+
+                    <p>You're my best friend, my girlfriend, and my everything now. I want to be with you forever and
+                        always.</p>
+
+                    <p class="love-declaration">I love you so much, Shreya! You are my first love and my last — so I
+                        will love you endlessly, to infinity and beyond! 💕</p>
+
+                    <p class="kiss-text">Muahhhhhh! 😘💋</p>
+                </div>
+
+                <div class="signature personal-signature">
+                    <span class="heart-divider">💝💝💝</span>
+                    <p>Forever & Always Yours,</p>
+                    <p class="signature-name">Your Marshmallow 🤍</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Love Message Section -->
+        <div class="message-container">
+            <div class="message-card">
+                <div class="card-decoration top-left">✨</div>
+                <div class="card-decoration top-right">✨</div>
+                <div class="card-decoration bottom-left">🌹</div>
+                <div class="card-decoration bottom-right">🌹</div>
+
+                <h2 class="message-title">To My Beautiful Gulab Jamun</h2>
+                <div class="love-letter">
+                    <p class="typewriter" id="loveMessage"></p>
+                </div>
+                <div class="signature">
+                    <span class="heart-divider">💝💝💝</span>
+                    <p>Forever Yours,</p>
+                    <p class="signature-name">Manav (Your Ares) 🖤</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Reasons Section -->
+        <div class="reasons-section">
+            <h2 class="section-title">
+                <span class="title-heart">❤️</span>
+                Why I Love You, Shreya
+                <span class="title-heart">❤️</span>
+            </h2>
+            <div class="reasons-grid">
+                <div class="reason-card" style="--delay: 0.1s">
+                    <span class="reason-icon">✨</span>
+                    <p>Those beautiful dark, angelic eyes that I can get lost in forever</p>
+                </div>
+                <div class="reason-card" style="--delay: 0.2s">
+                    <span class="reason-icon">�</span>
+                    <p>Your bold and confident personality that amazes me every day</p>
+                </div>
+                <div class="reason-card" style="--delay: 0.3s">
+                    <span class="reason-icon">😊</span>
+                    <p>That smile that makes my heart skip a beat every single time</p>
+                </div>
+                <div class="reason-card" style="--delay: 0.4s">
+                    <span class="reason-icon">💪</span>
+                    <p>You've changed me and made me a better person</p>
+                </div>
+                <div class="reason-card" style="--delay: 0.5s">
+                    <span class="reason-icon">🤗</span>
+                    <p>You're my best friend and my everything all in one</p>
+                </div>
+                <div class="reason-card" style="--delay: 0.6s">
+                    <span class="reason-icon">💖</span>
+                    <p>You make every moment magical just by being you</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Promise Section -->
+        <div class="promise-section">
+            <div class="promise-card">
+                <h2 class="promise-title">My Promises To You, Shreya</h2>
+                <div class="promises-list">
+                    <div class="promise-item">
+                        <span class="promise-heart">💗</span>
+                        <p>To love you more with each passing day</p>
+                    </div>
+                    <div class="promise-item">
+                        <span class="promise-heart">💗</span>
+                        <p>To always be your Marshmallow when you need sweetness</p>
+                    </div>
+                    <div class="promise-item">
+                        <span class="promise-heart">💗</span>
+                        <p>To be your Ares — strong and protective, always by your side</p>
+                    </div>
+                    <div class="promise-item">
+                        <span class="promise-heart">💗</span>
+                        <p>To make you smile and laugh every single day</p>
+                    </div>
+                    <div class="promise-item">
+                        <span class="promise-heart">💗</span>
+                        <p>To cherish you as my first and last love, forever</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Final Message -->
+        <div class="final-section">
+            <div class="heart-animation">
+                <div class="beating-heart">❤️</div>
+            </div>
+            <h2 class="final-title">Shreya, You Complete Me</h2>
+            <p class="final-message">
+                Every love story is beautiful, but ours is my absolute favorite.
+                From Ares to Iris, from Marshmallow to Gulab Jamun —
+                you are my everything, my first love, and my last.
+                I'm so incredibly lucky to have you in my life, Shreya!
+            </p>
+            <div class="final-hearts">
+                <span>💕</span>
+                <span>💖</span>
+                <span>💕</span>
+            </div>
+            <button class="replay-btn" id="replayBtn">
+                <span>💝</span> Replay Our Love Story <span>💝</span>
+            </button>
+        </div>
+
+        <!-- Footer -->
+        <footer class="gift-footer">
+            <p>Made with 💖 just for you, Shreya</p>
+            <p class="date">Valentine's Day 2026</p>
+            <p class="couple-names">Manav 💕 Shreya</p>
+        </footer>
+    </section>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
